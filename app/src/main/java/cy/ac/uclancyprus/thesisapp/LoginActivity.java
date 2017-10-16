@@ -8,48 +8,66 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class LoginActivity extends AppCompatActivity {
 
-    EditText username_TXT;
-    Button register_BTN;
-    Button signIn_BTN;
-    String username_def = "maria";
+    EditText usernameTxt;
+    Button registerBtn;
+    Button signInBtn;
+    String usernameDef = "maria";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        username_TXT = (EditText) findViewById(R.id.userNameTXT);
-        register_BTN = (Button) findViewById(R.id.registerBTN);
-        signIn_BTN = (Button) findViewById(R.id.signIn_BTN);
+        usernameTxt = (EditText) findViewById(R.id.userNameTXT);
+        registerBtn = (Button) findViewById(R.id.registerBTN);
+        signInBtn = (Button) findViewById(R.id.signInBtn);
 
         // Register Button Intent to the RegisterActivity
-        register_BTN.setOnClickListener(new View.OnClickListener() {
+        registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent register_Intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(register_Intent.putExtra("username", username_def));
-                Intent getRegister_Intent = getIntent();
-                username_def = getRegister_Intent.getStringExtra("New Username");
+                startActivity(register_Intent.putExtra("username", usernameDef));
+
             }
         });
 
         //region Sign In button Intent to Menu Activity
-        signIn_BTN.setOnClickListener(new View.OnClickListener() {
+        signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if ( username_def.equals(username_TXT.getText().toString()))  {
-                    username_def = username_TXT.getText().toString();
-                    Intent menu_Intent = new Intent(LoginActivity.this, MenuActivity.class);
-                    startActivity(menu_Intent.putExtra("user", username_def));
+                try {
+                    Intent getRegister_Intent = getIntent();
+                    String newUsername = "";
+                    newUsername = getRegister_Intent.getStringExtra("New Username");
+                    if (newUsername != null && !newUsername.equals("")) {
+                        usernameDef = newUsername;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+//                usernameDef = getRegister_Intent.getStringExtra("New Username");
+                if (!usernameTxt.getText().toString().equals("")) {
+                    if (usernameTxt.getText().toString().equals(usernameDef)) {
+                        usernameDef = usernameTxt.getText().toString();
+                        Intent menu_Intent = new Intent(LoginActivity.this, MenuActivity.class);
+                        startActivity(menu_Intent.putExtra("user", usernameDef));
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Wrong Username", Toast.LENGTH_LONG).show();
+                    }
                 } else {
-                    Toast.makeText(LoginActivity.this, "Wrong Username",Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Enter a username.", Toast.LENGTH_LONG).show();
                 }
             }
         });
         //endregion
 
+        //Google Sign In Button
 
+
+        //End of Google Sign In Button
     }
 }
