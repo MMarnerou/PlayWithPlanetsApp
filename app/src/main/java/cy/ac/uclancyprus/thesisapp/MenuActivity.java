@@ -10,8 +10,9 @@ import android.widget.TextView;
 public class MenuActivity extends AppCompatActivity {
 
 
-    TextView userIDTXT_Menu;
-    ImageButton mode1BTN_Menu;
+    TextView userId;
+    ImageButton mode1Btn;
+    ImageButton mode2Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,16 +20,26 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         Intent signIn_Intent = getIntent();
         String user = signIn_Intent.getStringExtra("user");
-        userIDTXT_Menu = (TextView) findViewById(R.id.userIDTXT_Menu);
-        userIDTXT_Menu.setText("Welcome " + user);
+        userId = (TextView) findViewById(R.id.userIDTXT_Menu);
+        userId.setText("Welcome " + user);
 
-        mode1BTN_Menu = (ImageButton) findViewById(R.id.mode1BTN_Menu);
-        mode1BTN_Menu.setOnClickListener(new View.OnClickListener() {
+        mode1Btn = (ImageButton) findViewById(R.id.mode1BTN_Menu);
+        mode1Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Mode1_Intent = new Intent(MenuActivity.this, ReadingModeActivity.class);
-                startActivity(Mode1_Intent);
+                Intent mode1Intent = new Intent(MenuActivity.this, ReadingModeActivity.class);
+                startActivity(mode1Intent);
             };
         });
+
+        mode2Btn = (ImageButton) findViewById(R.id.mode2BTN_Menu);
+        mode2Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mode2Intent = new Intent(MenuActivity.this, QuizModeActivity.class);
+                startActivity(mode2Intent);
+            };
+        });
+
     }
 }

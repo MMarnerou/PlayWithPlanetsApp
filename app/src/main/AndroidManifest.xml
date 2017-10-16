@@ -19,7 +19,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".ReadingModeActivity" />
-        <activity android:name=".QuizModeActivity"></activity>
+        <activity android:name=".QuizModeActivity" />
+        <activity android:name=".QuizActivity" />
     </application>
 
 </manifest>

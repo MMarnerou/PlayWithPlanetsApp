@@ -23,7 +23,7 @@ public class ReadingModeActivity extends AppCompatActivity {
         bookTXT_Reading =(TextView) findViewById(R.id.bookTXT_Reading);
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new InputStreamReader(getAssets().open("PWC_users.txt")));
+            reader = new BufferedReader(new InputStreamReader(getAssets().open("test_file.txt")));
             String Line;
             while ((Line = reader.readLine()) != null) {
                 bookTXT_Reading.append(Line);
