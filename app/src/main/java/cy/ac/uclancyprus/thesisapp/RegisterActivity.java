@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class RegisterActivity extends AppCompatActivity {
-    ImageButton closeBTN_Reg;
-    Button registerBTN_Reg;
-    EditText usernameTXT_Reg;
+    ImageButton closeBtn;
+    Button registerBtn;
+    EditText usernameTxt;
     String usernameNew;
-    Spinner yearOfBirth_DDL;
+    Spinner yearOfBirthDdl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,8 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         //Start Close Button region
-        closeBTN_Reg = (ImageButton) findViewById(R.id.closeBTN_Register);
-        closeBTN_Reg.setOnClickListener(new View.OnClickListener() {
+        closeBtn = (ImageButton) findViewById(R.id.closeBtn);
+        closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
@@ -37,17 +37,19 @@ public class RegisterActivity extends AppCompatActivity {
         //End of Close Button region
 
         //Start Register Button region
-        usernameTXT_Reg = (EditText) findViewById(R.id.usernameTXT_Register);
-        registerBTN_Reg = (Button) findViewById(R.id.registerBTN_Register);
-        registerBTN_Reg.setOnClickListener(new View.OnClickListener() {
+        usernameTxt = (EditText) findViewById(R.id.usernameTxt);
+        registerBtn = (Button) findViewById(R.id.registerBtn);
+
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent signIn_Intent = getIntent();
                 String username = signIn_Intent.getStringExtra("username");
-                if (usernameTXT_Reg.getText().toString().equals(username)) {
+                if (usernameTxt.getText().toString().equals(username)) {
                     Toast.makeText(RegisterActivity.this, "This username is being used", Toast.LENGTH_LONG).show();
                 } else {
-                    usernameNew = usernameTXT_Reg.getText().toString();
+                    usernameNew = usernameTxt.getText().toString();
                     Toast.makeText(RegisterActivity.this, "Your account is ready!", Toast.LENGTH_SHORT).show();
                     Intent LoginInActivity_Intent = new Intent(RegisterActivity.this, LoginActivity.class);
                     LoginInActivity_Intent.putExtra("New Username", usernameNew);
@@ -58,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         //End of Register Button Region
 
         //Start Year Of Birth DDL
-        yearOfBirth_DDL = (Spinner) findViewById(R.id.year_DDL);
+        yearOfBirthDdl = (Spinner) findViewById(R.id.yearOfBirthDdl);
 
         ArrayList<String> years = new ArrayList<>();
         int thisYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -66,6 +68,6 @@ public class RegisterActivity extends AppCompatActivity {
             years.add(Integer.toString(i));
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(RegisterActivity.this, android.R.layout.simple_spinner_item, years);
-        yearOfBirth_DDL.setAdapter(adapter);
+        yearOfBirthDdl.setAdapter(adapter);
     }
 }

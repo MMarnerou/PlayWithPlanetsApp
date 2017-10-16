@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".ReadingModeActivity"></activity>
+        <activity android:name=".ReadingModeActivity" />
+        <activity android:name=".QuizModeActivity"></activity>
     </application>
 
 </manifest>

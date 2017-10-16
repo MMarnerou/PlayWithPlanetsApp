@@ -1,0 +1,71 @@
+Connect to this link:
+https://cynet.vpn.pwc.com:443/ 
+
+Set the following username and password to connect to user Sharepoint001:
+--->>  HS_DATA001 
+--->>  pwcD@t@1
+Open a remote Control Desktop:
+CY-SHPTST002 (APP)? 
+IP: 192.168.2.35
+WEB:  
+IP: 192.168.2.34
+
+Username: cy_pwc\sharepointdev i tst-spadmin 
+Password: 12345678? 
+
+PWC USERS :
+--------------------------------------------------
+CCS/CSS
+
+Yiannis Constantinou	workflow8	241	Indirect Tax - Nicosia(VAT)	40	Senior Associate 2
+Panagiotis Miltiadou	workflow9	241	Indirect Tax - Nicosia	50	Senior Associate
+Varnavas Nicolaou	workflow10	241	Indirect Tax - Nicosia	11	Partner
+
+Maria Gaitanou		workflow1	202	IPC - Nicosia	61	Associate 3
+Olga Procopiou		workflow2	202	IPC - Nicosia	41	Manager
+Christos Tooulas	workflow4	202	IPC - Nicosia	30	Senior Manager
+Petros Maroudias	workflow6	202	IPC - Nicosia	11	Partner
+
+Glafcos Kyprianou	workflow11	251	Legal	50	Senior Associate
+Natalie Glykys		workflow12	251	Legal	41	Manager
+Panayiotis Panayides	workflow13	251	Legal	20	Directors
+Spyros Evangelou	workflow17	251	Legal	11	Partner
+George Polemidiotis	workflow18	251	Legal	30	Senior Manager
+
+Ioannis Stylianides	workflow21	225	Tax Advisory - Nicosia	60	Associate 2
+Iva Angelova		workflow22	225	Tax Advisory - Nicosia	41	Manager
+Joanne Theodorides	workflow23	225	Tax Advisory - Nicosia	20	Directors
+Marios Andreou		workflow25	225	Tax Advisory - Nicosia	11	Partner
+Andreas Iosif		workflow24	226	Tax Advisory - Regions	30	Senior Manager
+
+Stelios Kyranides	workflow7	217	TRS 2 Accounting & Payroll	30      Senior Manager
+Kyriacos Florides	workflow14	217	TRS 2 Accounting & Payroll	50	Senior Associate
+Christiana Demetriou	workflow15	217	TRS 2 Accounting & Payroll	30	Senior Manager
+Michalis Stavrides	workflow16	217	TRS 2 Accounting & Payroll	20	Directors
+Paris Chrysostomou	workflow20	217	TRS 2 Accounting & Payroll	30	Senior Manager
+
+Lucy Phesia		workflow3	218	TRS 2 Corporate Services	61	Associate 3
+Theodosia Hadjiloe	workflow5	218	TRS 2 Corporate Services	41	Manager
+Pantelis Evangelou	workflow19	218	TRS 2 Corporate Services	11	Partner
+
+DMS App			
+--------
+username: dms010
+password : january2017
+
+username: TLSWORKFLOWREADER
+psw: TLSWflRd
+
+Warm ups
+--------
+
+Add to the Intranet Site or Trusted
+------------------------------------
+http://*.cy.ema.ad.pwcinternal.com
+
+http://workflowformstest.cy.ema.ad.pwcinternal.com/Forms/?SPHostUrl=http%3A%2F%2Fworkflowstest.cy.ema.ad.pwcinternal.com%2F&SPLanguage=en%2DUS&SPClientTag=0&SPProductNumber=15%2E0%2E4569%2E1000#/DOAreq/0/Request
+
+PWC dashboard url
+------------------
+http://cy-shptst004:9092/
+
