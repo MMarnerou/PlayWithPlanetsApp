@@ -6,4 +6,47 @@
     android:layout_height="match_parent"
     tools:context="cy.ac.uclancyprus.thesisapp.QuizActivity">
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="328dp"
+        android:layout_height="45dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="278dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="328dp"
+        android:layout_height="45dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="233dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="328dp"
+        android:layout_height="45dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="323dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="328dp"
+        android:layout_height="45dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="368dp" />
+
+    <EditText
+        android:id="@+id/questionTxt"
+        android:layout_width="328dp"
+        android:layout_height="113dp"
+        android:ems="10"
+        android:hint="Question"
+        android:inputType="textMultiLine"
+        android:text="Question"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="63dp" />
 </android.support.constraint.ConstraintLayout>
