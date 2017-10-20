@@ -42,7 +42,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
-    //https://www.youtube.com/watch?v=81FLyzhROiQ
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(TABLE_QUESTIONS);//create the Question_Table
@@ -70,7 +70,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         long insert = db.insert(TABLE_QUESTIONS, null, values);
         return insert;
     }
-
     //To Extract data from database and save it in an ArrayList of data type Question
 
     public List<Questions> getQuestionsList() {
@@ -105,7 +104,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
                 //add to Questions List
 
+
             }
+            //https://www.youtube.com/watch?v=81FLyzhROiQ
         }
 
     }
