@@ -56,7 +56,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     //Add question detail in question Table
 
-    public long addInitialQuestion (Questions questions){
+    public long addInitialQuestion(Questions questions) {
         SQLiteDatabase db = this.getWritableDatabase();
         //Creating content values
         ContentValues values = new ContentValues();
@@ -104,10 +104,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 question.setQuestion(answerText);
 
                 //add to Questions List
-                questionsArrayList
+
             }
         }
 
     }
-        return questionsArrayList;
 }
