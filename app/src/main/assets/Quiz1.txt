@@ -1,58 +1,58 @@
-1. Q: How many planets are there in our solar system?
+Q1.How many planets are there in our solar system?
 a) Eight
 b) Nine
 c) Ten
 d) Eleven
 
-2. Q: Are the orbits of the planets on the same plane?
+Q2. Are the orbits of the planets on the same plane?
 a) Yes, more or less
 b) No, they're all over the place
 c)
 d)
 
-3. In our solar system, the planets known as the giant planets are also known as the outer planets?
+Q3. In our solar system, the planets known as the giant planets are also known as the outer planets?
 a) True
 b) False
 c)
 d)
 
-4. Q: Which statement describes the atmosphere of the planet correctly?
+Q4. Which statement describes the atmosphere of the planet correctly?
 a) Venus is mostly carbon dioxide
 b) Mercury is mostly nitrogen
 c) Earth is mostly oxygen
 d) Saturn is mostly helium
 
-5. Q: To weigh roughly two-thirds less than what you do on Earth, which planet would you be on?
+Q5. To weigh roughly two-thirds less than what you do on Earth, which planet would you be on?
 a) Uranus
 b) Mars
 c) Venus
 d) Jupiter
 
-6. Q: How long does it take for light from the Sun to reach Earth
+Q6. How long does it take for light from the Sun to reach Earth
 a) 1 minute
 b) 8 minutes
 c) Instantaneous
 d) 24 hours
 
-7. It takes the Sun 225-250 million years to do one revolution of the Milky Way Galaxy. How fast does the Sun travel?
+Q7. It takes the Sun 225-250 million years to do one revolution of the Milky Way Galaxy. How fast does the Sun travel?
 a) 220km in a second
 b) 220km in an minute
 c) 220 km in a hour
 d) 220km in a year
 
-8. How old is the solar system
+Q8. How old is the solar system
 a) 5000 years
 b) 5 million years
 c) 5 billion years
 d) 500 billion years
 
-9. In 2007, Voyager 2 crossed the heliosheath boundary and into the vast region at the edge of our solar system where the solar wind runs up against the thin gas between the stars. What did this crossing confirm about the shape of our solar system?
+Q9. In 2007, Voyager 2 crossed the heliosheath boundary and into the vast region at the edge of our solar system where the solar wind runs up against the thin gas between the stars. What did this crossing confirm about the shape of our solar system?
 a) It's squashed
 b) It's round
 c) It's like a donut
 d) It's a horseshoe shape.
 
-10. True of False. The immediate galactic area around our solar system is a cloud known as the Local Fluff which is within an otherwise sparse region called the Local Bubble.
+Q10. True of False. The immediate galactic area around our solar system is a cloud known as the Local Fluff which is within an otherwise sparse region called the Local Bubble.
 a) True
 b) False
 c)
