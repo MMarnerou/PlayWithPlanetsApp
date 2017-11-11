@@ -21,8 +21,14 @@ public class MenuActivity extends AppCompatActivity {
         Intent signIn_Intent = getIntent();
         String user = signIn_Intent.getStringExtra("user");
 
+        //Start Welcome label
+        Intent loginActivityIntent = getIntent();
+        user = loginActivityIntent.getStringExtra("username");
+
         userId = (TextView) findViewById(R.id.userIDTXT_Menu);
         userId.setText("Welcome " + user);
+        // End Welcome label
+
 
         mode1Btn = (ImageButton) findViewById(R.id.mode1BTN_Menu);
         mode1Btn.setOnClickListener(new View.OnClickListener() {

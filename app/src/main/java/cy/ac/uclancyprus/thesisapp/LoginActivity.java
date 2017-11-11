@@ -13,7 +13,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText usernameTxt;
     Button registerBtn;
     Button signInBtn;
-    String usernameDef = "maria";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent register_Intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(register_Intent.putExtra("username", usernameDef));
-
+                Intent register_Intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(register_Intent);
             }
         });
 
@@ -39,34 +37,24 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    Intent getRegister_Intent = getIntent();
-                    String newUsername = "";
-                    newUsername = getRegister_Intent.getStringExtra("New Username");
-                    if (newUsername != null && !newUsername.equals("")) {
-                        usernameDef = newUsername;
+                    String userName = usernameTxt.getText().toString();
+                    if (userName.equals("maria") && !userName.equals("")) {
+                        Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_LONG).show();
+                        Intent menuIntent = new Intent(LoginActivity.this, MenuActivity.class);
+                        menuIntent.putExtra("username", userName);
+                        startActivity(menuIntent);
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Username does not match", Toast.LENGTH_LONG).show();
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Toast.makeText(LoginActivity.this, " Exception e", Toast.LENGTH_LONG).show();
                 }
-//                usernameDef = getRegister_Intent.getStringExtra("New Username");
-                if (!usernameTxt.getText().toString().equals("")) {
-                    if (usernameTxt.getText().toString().equals(usernameDef)) {
-                        usernameDef = usernameTxt.getText().toString();
-                        Intent menu_Intent = new Intent(LoginActivity.this, MenuActivity.class);
-                        startActivity(menu_Intent.putExtra("user", usernameDef));
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Wrong Username", Toast.LENGTH_LONG).show();
-                    }
-                } else {
-                    Toast.makeText(LoginActivity.this, "Enter a username.", Toast.LENGTH_LONG).show();
-                }
+                //endregion
+
+                //Google Sign In Button
+                //TO DO
+                //End of Google Sign In Button
             }
         });
-        //endregion
-
-        //Google Sign In Button
-
-
-        //End of Google Sign In Button
     }
 }

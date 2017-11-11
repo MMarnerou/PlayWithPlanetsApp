@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class QuizActivity extends AppCompatActivity {
 
-    QuestionBank mQuestionLibrary = new QuestionBank();
+    QuestionLibrary questionLibrary = new QuestionLibrary();
     TextView questionTxt, questionID;
     String answer;
     int defColor = Color.LTGRAY;
@@ -28,6 +28,7 @@ public class QuizActivity extends AppCompatActivity {
         questionTxt = (TextView) findViewById(R.id.questionTXT);
         questionID = (TextView) findViewById(R.id.questionID);
         setDefColorButtons();
+
         //Take a random question
         questionId = 1;
 
@@ -39,7 +40,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setDefColorButtons();
-                if ((mQuestionLibrary.getChoice1(questionId)).equals(answer)) {
+                if ((questionLibrary.getChoice1(questionId)).equals(answer)) {
                     answer1Btn.setBackgroundColor(Color.GREEN);
                 } else {
                     answer1Btn.setBackgroundColor(Color.RED);
@@ -51,7 +52,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setDefColorButtons();
-                if ((mQuestionLibrary.getChoice2(questionId)).equals(answer)) {
+                if ((questionLibrary.getChoice2(questionId)).equals(answer)) {
                     answer2Btn.setBackgroundColor(Color.GREEN);
 
                 } else {
@@ -64,7 +65,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setDefColorButtons();
-                if ((mQuestionLibrary.getChoice3(questionId)).equals(answer)) {
+                if ((questionLibrary.getChoice3(questionId)).equals(answer)) {
                     answer3Btn.setBackgroundColor(Color.GREEN);
                 } else {
                     answer3Btn.setBackgroundColor(Color.RED);
@@ -76,7 +77,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setDefColorButtons();
-                if ((mQuestionLibrary.getChoice4(questionId)).equals(answer)) {
+                if ((questionLibrary.getChoice4(questionId)).equals(answer)) {
                     answer4Btn.setBackgroundColor(Color.GREEN);
                 } else {
                     answer4Btn.setBackgroundColor(Color.RED);
@@ -88,14 +89,14 @@ public class QuizActivity extends AppCompatActivity {
     private void updateQuestions(int id) {
         // Display question to the Text View
         questionID.setText("QUESTION: " + id);
-        questionTxt.setText(mQuestionLibrary.getQuestion(id));
+        questionTxt.setText(questionLibrary.getQuestion(id));
         // Display Answers to the screen
-        answer1Btn.setText(mQuestionLibrary.getChoice1(id));
-        answer2Btn.setText(mQuestionLibrary.getChoice2(id));
-        answer3Btn.setText(mQuestionLibrary.getChoice3(id));
-        answer4Btn.setText(mQuestionLibrary.getChoice4(id));
+        answer1Btn.setText(questionLibrary.getChoice1(id));
+        answer2Btn.setText(questionLibrary.getChoice2(id));
+        answer3Btn.setText(questionLibrary.getChoice3(id));
+        answer4Btn.setText(questionLibrary.getChoice4(id));
         // Get the right answer from QuestionBank
-        answer = mQuestionLibrary.getCorrectAnswer(id);
+        answer = questionLibrary.getCorrectAnswer(id);
     }
 
     private void setDefColorButtons() {

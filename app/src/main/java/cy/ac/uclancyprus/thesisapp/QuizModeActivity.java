@@ -22,7 +22,6 @@ public class QuizModeActivity extends AppCompatActivity {
         button5Btn = (ImageButton) findViewById(R.id.quiz5);
         button6Btn = (ImageButton) findViewById(R.id.quiz6);
 
-
         //Start Quiz 1
         button1Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,5 +50,32 @@ public class QuizModeActivity extends AppCompatActivity {
             }
         });
         //End Quiz 3
+        //Start Quiz 4
+        button4Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent quizIntent = new Intent(QuizModeActivity.this, QuizActivity.class);
+                startActivity(quizIntent);
+            }
+        });
+        //End Quiz 4
+        //Start Quiz 5
+        button5Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent quizIntent = new Intent(QuizModeActivity.this, QuizActivity.class);
+                startActivity(quizIntent);
+            }
+        });
+        //End Quiz 5
+        // Start Quiz 6
+        button6Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent quizIntent = new Intent(QuizModeActivity.this, QuizActivity.class);
+                startActivity(quizIntent);
+            }
+        });
+        //End Quiz 6
     }
 }

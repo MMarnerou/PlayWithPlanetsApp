@@ -21,6 +21,7 @@
         <activity android:name=".ReadingModeActivity" />
         <activity android:name=".QuizModeActivity" />
         <activity android:name=".QuizActivity" />
+        <activity android:name=".RegistrationActivity"></activity>
     </application>
 
 </manifest>
