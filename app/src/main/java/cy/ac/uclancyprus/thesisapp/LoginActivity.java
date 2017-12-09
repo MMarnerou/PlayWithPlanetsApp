@@ -27,8 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent register_Intent = new Intent(LoginActivity.this, RegistrationActivity.class);
-                startActivity(register_Intent);
+                Intent menuActivity_Intent = new Intent(LoginActivity.this, MenuActivity.class);
+                startActivity(menuActivity_Intent);
             }
         });
 
@@ -50,10 +50,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, " Exception e", Toast.LENGTH_LONG).show();
                 }
                 //endregion
-
-                //Google Sign In Button
-                //TO DO
-                //End of Google Sign In Button
             }
         });
     }

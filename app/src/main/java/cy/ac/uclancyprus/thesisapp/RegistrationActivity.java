@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -14,6 +15,7 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText nameTxt, surnameTxt, yearOfBirthTxt, usernameTxt;
     String nameAdd, surnameAdd, usernameAdd;
     String yearOfBirthAdd, entries;
+    RadioGroup femaleRB, maleRB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,8 @@ public class RegistrationActivity extends AppCompatActivity {
         surnameTxt = (EditText) findViewById(R.id.surname);
         usernameTxt = (EditText) findViewById(R.id.username);
         yearOfBirthTxt = (EditText) findViewById(R.id.yearOfBirth);
-
+        femaleRB = (RadioGroup) findViewById(R.id.femaleRB);
+        maleRB = (RadioGroup) findViewById(R.id.maleRB);
         //Start Registration Button
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override

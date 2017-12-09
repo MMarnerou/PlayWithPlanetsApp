@@ -8,7 +8,7 @@ import android.widget.ImageButton;
 
 public class QuizModeActivity extends AppCompatActivity {
 
-    ImageButton button1Btn, button2Btn, button3Btn, button4Btn, button5Btn, button6Btn;
+    ImageButton button1Btn, button2Btn, button3Btn, button4Btn, button5Btn, button6Btn, button8Btn, button7Btn, buttonFinalBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +21,11 @@ public class QuizModeActivity extends AppCompatActivity {
         button4Btn = (ImageButton) findViewById(R.id.quiz4);
         button5Btn = (ImageButton) findViewById(R.id.quiz5);
         button6Btn = (ImageButton) findViewById(R.id.quiz6);
-
+        button7Btn = (ImageButton) findViewById(R.id.quiz7);
+        button8Btn = (ImageButton) findViewById(R.id.quiz8);
+        buttonFinalBtn = (ImageButton) findViewById(R.id.quizFinal);
         //Start Quiz 1
+
         button1Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

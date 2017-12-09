@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 public class MenuActivity extends AppCompatActivity {
 
-
     TextView userId;
     ImageButton mode1Btn;
     ImageButton mode2Btn;
@@ -18,8 +17,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        Intent signIn_Intent = getIntent();
-        String user = signIn_Intent.getStringExtra("user");
+        String user;
 
         //Start Welcome label
         Intent loginActivityIntent = getIntent();
@@ -28,7 +26,6 @@ public class MenuActivity extends AppCompatActivity {
         userId = (TextView) findViewById(R.id.userIDTXT_Menu);
         userId.setText("Welcome " + user);
         // End Welcome label
-
 
         mode1Btn = (ImageButton) findViewById(R.id.mode1BTN_Menu);
         mode1Btn.setOnClickListener(new View.OnClickListener() {
