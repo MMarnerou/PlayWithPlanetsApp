@@ -1,136 +1,140 @@
 {
-  "questions": {
-    "earth": {
+  "planets": [
+    {
+      "name": "earth",
       "welcome": "Earth is our home planet!",
       "questions": [
         {
-          "q": "What is the diameter of earth?",
-          "a": [
+          "question": "What is the diameter of earth?",
+          "answers": [
             "1m",
             "1Km",
             "100Km",
             "3000Km"
           ],
-          "c": 3
+          "correct": 3
         },
         {
-          "q": "Are the orbits of the planets on the same plane?",
-          "a": [
+          "question": "Are the orbits of the planets on the same plane?",
+          "answers": [
             "Yes, more or less",
             "No, they're all over the place"
           ],
-          "c": 1
+          "correct": 1
         },
         {
-          "q": "How many planets are there in our solar system?",
-          "a": [
+          "question": "How many planets are there in our solar system?",
+          "answers": [
             "Eight",
             "Nine",
             "Ten",
             "Eleven"
           ],
-          "c": 0
+          "correct": 0
         }
       ]
     },
-    "Zeus": {
+    {
+      "name": "Zeus",
       "welcome": "Earth is our home planet!",
       "questions": [
         {
-          "q": "What is the diameter of earth?",
-          "a": [
+          "question": "What is the diameter of earth?",
+          "answers": [
             "1m",
             "1Km",
             "100Km",
             "3000Km"
           ],
-          "c": 3
+          "correct": 3
         },
         {
-          "q": "Are the orbits of the planets on the same plane?",
-          "a": [
+          "question": "Are the orbits of the planets on the same plane?",
+          "answers": [
             "Yes, more or less",
             "No, they're all over the place"
           ],
-          "c": 2
+          "correct": 2
         },
         {
-          "q": "How many planets are there in our solar system?",
-          "a": [
+          "question": "How many planets are there in our solar system?",
+          "answers": [
             "Eight",
             "Nine",
             "Ten",
             "Eleven"
           ],
-          "c": 1
+          "correct": 1
         }
       ]
     },
-    "Jupiter": {
+    {
+      "name": "Jupiter",
       "welcome": "Earth is our home planet!",
       "questions": [
         {
-          "q": "What is the diameter of earth?",
-          "a": [
+          "question": "What is the diameter of earth?",
+          "answers": [
             "1m",
             "1Km",
             "100Km",
             "3000Km"
           ],
-          "c": 3
+          "correct": 3
         },
         {
-          "q": "Are the orbits of the planets on the same plane?",
-          "a": [
+          "question": "Are the orbits of the planets on the same plane?",
+          "answers": [
             "Yes, more or less",
             "No, they're all over the place"
           ],
-          "c": 2
+          "correct": 2
         },
         {
-          "q": "How many planets are there in our solar system?",
-          "a": [
+          "question": "How many planets are there in our solar system?",
+          "answers": [
             "Eight",
             "Nine",
             "Ten",
             "Eleven"
           ],
-          "c": 1
+          "correct": 1
         }
       ]
     },
-    "Mars": {
+    {
+      "name": "Mars",
       "welcome": "Earth is our home planet!",
       "questions": [
         {
-          "q": "What is the diameter of earth?",
-          "a": [
+          "question": "What is the diameter of earth?",
+          "answers": [
             "1m",
             "1Km",
             "100Km",
             "3000Km"
           ],
-          "c": 3
+          "correct": 3
         },
         {
-          "q": "Are the orbits of the planets on the same plane?",
-          "a": [
+          "question": "Are the orbits of the planets on the same plane?",
+          "answers": [
             "Yes, more or less",
             "No, they're all over the place"
           ],
-          "c": 2
+          "correct": 2
         },
         {
-          "q": "How many planets are there in our solar system?",
-          "a": [
+          "question": "How many planets are there in our solar system?",
+          "answers": [
             "Eight",
             "Nine",
             "Ten",
             "Eleven"
           ],
-          "c": 1
+          "correct": 1
         }
       ]
     }
-  }
+  ]
 }

@@ -31,7 +31,7 @@ public class MenuActivity extends AppCompatActivity {
         mode1Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mode1Intent = new Intent(MenuActivity.this, ReadingModeActivity.class);
+                Intent mode1Intent = new Intent(MenuActivity.this, QuizActivity.class);
                 startActivity(mode1Intent);
             }
         });

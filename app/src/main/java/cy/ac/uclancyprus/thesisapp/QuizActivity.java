@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,6 +19,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Iterator;
+
+import cy.ac.uclancyprus.thesisapp.model.Quiz;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -42,7 +47,7 @@ public class QuizActivity extends AppCompatActivity {
 //        questionId = 1;
 //
 //
-////        //Display Question & Choices
+////        //Display Planet & Choices
 //        updateQuestions(questionId);
 ////
 ////        //Choice1's Button listener
@@ -125,35 +130,43 @@ public class QuizActivity extends AppCompatActivity {
         questionTxt = (TextView) findViewById(R.id.questionTXT);
         questionID = (TextView) findViewById(R.id.questionID);
 
-        JSONObject root;
         try {
-            String json = convertStreamToString(getAssets().open("questions.json"));
-            root = new JSONObject(json);
-            JSONObject questions = root.getJSONObject("questions");
-//            Toast.makeText(this, "planet: " + questions, Toast.LENGTH_SHORT).show();
-
-            for (Iterator iterator = questions.keys(); iterator.hasNext(); ) {
-                String planet = iterator.next().toString();
-                Toast.makeText(this, "planet: " + planet, Toast.LENGTH_SHORT).show();
-
-                JSONObject planetJsonObject = questions.getJSONObject(planet);
-                String welcome = planetJsonObject.getString("Welcome");
-                JSONArray planetQuestions = planetJsonObject.getJSONArray("questions");
-                for (int i = 0; i < planetQuestions.length(); i++) {
-                    JSONObject question = planetQuestions.getJSONObject(i);
-                    String q = question.getString("q");
-                    JSONArray aJsonArray = question.getJSONArray("a");
-                    String[] a = new String[aJsonArray.length()];
-                    for (int j = 0; j < aJsonArray.length(); j++) {
-                        a[0] = aJsonArray.getString(j);
-                    }
-                    int c = question.getInt("c");
-                    Question qq = new Question(q, a, c);
-                    Toast.makeText(this, "Q: " + qq.toString(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        } catch (IOException | JSONException e) {
-            Log.e("planets", "Error while reading questions from assets: " + e);
+            final InputStream inputStream = getAssets().open("questions.json");
+            final Quiz quiz = new Gson().fromJson(new InputStreamReader(inputStream), Quiz.class);
+            Log.d("planets", quiz.toString());
+        } catch (IOException ioe) {
+            Log.e("planets", ioe.getMessage(), ioe);
         }
+
+//        JSONObject root;
+//        try {
+//            String json = convertStreamToString(getAssets().open("questions.json"));
+//            root = new JSONObject(json);
+//            JSONObject questions = root.getJSONObject("questions");
+////            Toast.makeText(this, "planet: " + questions, Toast.LENGTH_SHORT).show();
+//
+//            for (Iterator iterator = questions.keys(); iterator.hasNext(); ) {
+//                String planet = iterator.next().toString();
+//                Toast.makeText(this, "planet: " + planet, Toast.LENGTH_SHORT).show();
+//
+//                JSONObject planetJsonObject = questions.getJSONObject(planet);
+//                String welcome = planetJsonObject.getString("Welcome");
+//                JSONArray planetQuestions = planetJsonObject.getJSONArray("questions");
+//                for (int i = 0; i < planetQuestions.length(); i++) {
+//                    JSONObject question = planetQuestions.getJSONObject(i);
+//                    String q = question.getString("q");
+//                    JSONArray aJsonArray = question.getJSONArray("a");
+//                    String[] a = new String[aJsonArray.length()];
+//                    for (int j = 0; j < aJsonArray.length(); j++) {
+//                        a[0] = aJsonArray.getString(j);
+//                    }
+//                    int c = question.getInt("c");
+//                    Planet qq = new Planet(q, a, c);
+//                    Toast.makeText(this, "Q: " + qq.toString(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        } catch (IOException | JSONException e) {
+//            Log.e("planets", "Error while reading questions from assets: " + e);
+//        }
     }
 }
