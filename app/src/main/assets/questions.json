@@ -1,76 +1,79 @@
 {
+  //Closer to Sun(descending order): Pluto, Neptune, Uranus, Saturn, Jupiter, Mars, Earth, Venus, Mercury, Sun
+
   "planets": [
     {
-      "name": "earth",
-      "welcome": "Earth is our home planet!",
+      "name": "Pluto",
+      "welcome": "Welcome to Pluto!",
+      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
       "questions": [
         {
-          "question": "What is the diameter of earth?",
+          "question": "what color is it?",
           "answers": [
-            "1m",
-            "1Km",
-            "100Km",
-            "3000Km"
+            "white",
+            "black",
+            "green",
+            "yellow"
           ],
           "correct": 3
-        },
-        {
-          "question": "Are the orbits of the planets on the same plane?",
-          "answers": [
-            "Yes, more or less",
-            "No, they're all over the place"
-          ],
-          "correct": 1
-        },
-        {
-          "question": "How many planets are there in our solar system?",
-          "answers": [
-            "Eight",
-            "Nine",
-            "Ten",
-            "Eleven"
-          ],
-          "correct": 0
         }
       ]
     },
     {
-      "name": "Zeus",
-      "welcome": "Earth is our home planet!",
+      "name": "Neptune",
+      "welcome": "Welcome to Neptune!",
+      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
       "questions": [
         {
-          "question": "What is the diameter of earth?",
+          "question": "what color is it?",
           "answers": [
-            "1m",
-            "1Km",
-            "100Km",
-            "3000Km"
+            "white",
+            "black",
+            "green",
+            "yellow"
           ],
           "correct": 3
-        },
+        }
+      ]
+    },
+    {
+      "name": "Uranus",
+      "welcome": "Welcome to Uranus!",
+      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
+      "questions": [
         {
-          "question": "Are the orbits of the planets on the same plane?",
+          "question": "what color is it?",
           "answers": [
-            "Yes, more or less",
-            "No, they're all over the place"
+            "white",
+            "black",
+            "green",
+            "yellow"
           ],
-          "correct": 2
-        },
+          "correct": 3
+        }
+      ]
+    },
+    {
+      "name": "Saturn",
+      "welcome": "Welcome to Saturn!",
+      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
+      "questions": [
         {
-          "question": "How many planets are there in our solar system?",
+          "question": "what color is it?",
           "answers": [
-            "Eight",
-            "Nine",
-            "Ten",
-            "Eleven"
+            "white",
+            "black",
+            "green",
+            "yellow"
           ],
-          "correct": 1
+          "correct": 3
         }
       ]
     },
     {
       "name": "Jupiter",
-      "welcome": "Earth is our home planet!",
+      "welcome": "Welcome to Jupiter!",
+      "informations": "The largest planet is Jupiter.",
       "questions": [
         {
           "question": "What is the diameter of earth?",
@@ -104,7 +107,113 @@
     },
     {
       "name": "Mars",
+      "welcome": "Welcome to Mars!",
+      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
+      "questions": [
+        {
+          "question": "What is the diameter of earth?",
+          "answers": [
+            "1m",
+            "1Km",
+            "100Km",
+            "3000Km"
+          ],
+          "correct": 3
+        },
+        {
+          "question": "Are the orbits of the planets on the same plane?",
+          "answers": [
+            "Yes, more or less",
+            "No, they're all over the place"
+          ],
+          "correct": 2
+        },
+        {
+          "question": "How many planets are there in our solar system?",
+          "answers": [
+            "Eight",
+            "Nine",
+            "Ten",
+            "Eleven"
+          ],
+          "correct": 1
+        }
+      ]
+    },
+    {
+      "name": "Earth",
       "welcome": "Earth is our home planet!",
+      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
+      "questions": [
+        {
+          "question": "What is the diameter of earth?",
+          "answers": [
+            "1m",
+            "1Km",
+            "100Km",
+            "3000Km"
+          ],
+          "correct": 3
+        },
+        {
+          "question": "Are the orbits of the planets on the same plane?",
+          "answers": [
+            "Yes, more or less",
+            "No, they're all over the place"
+          ],
+          "correct": 1
+        },
+        {
+          "question": "How many planets are there in our solar system?",
+          "answers": [
+            "Eight",
+            "Nine",
+            "Ten",
+            "Eleven"
+          ],
+          "correct": 0
+        }
+      ]
+    },
+    {
+      "name": "Venus",
+      "welcome": "Welcome to Venus!",
+      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
+      "questions": [
+        {
+          "question": "What is the diameter of earth?",
+          "answers": [
+            "1m",
+            "1Km",
+            "100Km",
+            "3000Km"
+          ],
+          "correct": 3
+        },
+        {
+          "question": "Are the orbits of the planets on the same plane?",
+          "answers": [
+            "Yes, more or less",
+            "No, they're all over the place"
+          ],
+          "correct": 2
+        },
+        {
+          "question": "How many planets are there in our solar system?",
+          "answers": [
+            "Eight",
+            "Nine",
+            "Ten",
+            "Eleven"
+          ],
+          "correct": 1
+        }
+      ]
+    },
+    {
+      "name": "Mercury",
+      "welcome": "Welcome to Mercury!",
+      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
       "questions": [
         {
           "question": "What is the diameter of earth?",
@@ -136,5 +245,22 @@
         }
       ]
     }
+    //    {
+    //      "name": "Sun",
+    //      "welcome": "Welcome to Sun! Wow it is too hot!",
+    //      "informations" : "Pluto has the bigest distance from the sun of the 8 planets.",
+    //      "questions": [
+    //        {
+    //          "question": "what color is it?",
+    //          "answers": [
+    //            "white",
+    //            "black",
+    //            "green",
+    //            "yellow"
+    //          ],
+    //          "correct": 3
+    //        }
+    //      ]
+    //    }
   ]
 }
