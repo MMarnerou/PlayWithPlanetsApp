@@ -1,4 +1,4 @@
-package cy.ac.uclancyprus.thesisapp.model;
+package com.example.mariamarnerou.testapp.model;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -6,10 +6,14 @@ import java.util.Arrays;
 public class Question implements Serializable {
 
     private String question;
-    private String [] answers;
+    private String[] answers,questions;
     private int correct;
 
     public Question() { super(); }
+
+    public String[] getQuestions() {
+        return questions;
+    }
 
     public String getQuestion() {
         return question;

@@ -29,7 +29,7 @@ public class Planet implements Serializable {
         return questions;
     }
 
-    public Question getQuestion(final int i) {
+    public Question getQuestion(int i) {
         return questions[i];
     }
 
