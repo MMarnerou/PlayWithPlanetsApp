@@ -16,6 +16,16 @@
             "yellow"
           ],
           "correct": 3
+        },
+        {
+          "question": "what color is it2?",
+          "answers": [
+            "white2",
+            "black2",
+            "green2",
+            "yellow2"
+          ],
+          "correct": 3
         }
       ]
     },

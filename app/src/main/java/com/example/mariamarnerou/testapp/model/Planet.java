@@ -1,7 +1,5 @@
 package com.example.mariamarnerou.testapp.model;
 
-import com.example.mariamarnerou.testapp.Question;
-
 import java.io.Serializable;
 import java.util.Arrays;
 

@@ -5,9 +5,9 @@ import java.util.Arrays;
 
 public class Question implements Serializable {
 
-    private String question;
-    private String[] answers,questions;
-    private int correct;
+    public String question;
+    public String [] answers,questions;
+    public int correct;
 
     public Question() { super(); }
 
