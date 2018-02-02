@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class planetQuiz extends AppCompatActivity {
+public class planetQuiz extends AppCompatActivity { // todo you need to name classes starting with capital letters. you can fix this using 'refactoring'. select the class name 'planetQuiz' and then press SHIFT+F6 and edit the name. using refactoring will fix the class name and all places where it is used.
 
     TextView questionTxt, questionID, planet;
     Button answer1Btn, answer2Btn, answer3Btn, answer4Btn, next;

@@ -23,6 +23,9 @@ public class GameMode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_mode);
+        // todo your images are nice but the text in it os too small to be readable
+        // todo make sure that any text/images/sounds you use are properly cited and that you only use free resources from the public domain
+        // todo I see that when I play one of the planets (e.g. Neptune) when I click 'next question' nothing happens.
 
         plutoBtn = findViewById(R.id.pluto);
         neptuneBtn = findViewById(R.id.neptune);
