@@ -118,7 +118,7 @@ public class GameMode extends AppCompatActivity {
     }
 
     public void planetChoice(View view) {
-        Intent quiz_intent = new Intent(this, planetQuiz.class);
+        Intent quiz_intent = new Intent(this, PlanetQuiz.class);
         if (view == plutoBtn) {
 //            Toast.makeText(this, "This is " + quiz.getPlanet("Pluto"), Toast.LENGTH_SHORT).show();
             quiz_intent.putExtra("planet", "Pluto");

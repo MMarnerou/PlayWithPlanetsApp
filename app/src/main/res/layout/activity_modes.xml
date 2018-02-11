@@ -38,11 +38,11 @@
             <ImageButton
                 android:id="@+id/guizBtn"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="160dp"
                 android:layout_marginRight="15dp"
-                android:elevation="12dp"
+                android:elevation="0dp"
                 android:layout_marginEnd="15dp"
-                android:background="@mipmap/quiz_round" />
+                android:background="@mipmap/quiz_foreground" />
 
             <TextView
                 android:id="@+id/quiz"
@@ -50,6 +50,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Quiz Mode"
+                android:textSize="@dimen/fab_margin"
+                android:textColor="#000"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -62,17 +64,19 @@
             <ImageButton
                 android:id="@+id/readingBtn"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="160dp"
                 android:layout_marginLeft="15dp"
-                android:elevation="12dp"
+                android:elevation="0dp"
                 android:layout_marginStart="15dp"
-                android:background="@mipmap/reading_round" />
+                android:background="@mipmap/reading_foreground" />
 
             <TextView
                 android:id="@+id/reading"
                 android:paddingTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textSize="@dimen/fab_margin"
+                android:textColor="#000"
                 android:text="Reading Mode"
                 android:textAlignment="center" />
         </LinearLayout>

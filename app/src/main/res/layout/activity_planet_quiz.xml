@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context="com.example.mariamarnerou.testapp.planetQuiz">
+    android:background="@mipmap/solar_foreground"
+    tools:context="com.example.mariamarnerou.testapp.PlanetQuiz">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,11 +17,11 @@
             android:id="@+id/planet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="15dp"
+            android:paddingTop="12dp"
             android:text="Welcome to Planet"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="25dp" />
+            android:textColor="#fff"
+            android:textSize="26sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -34,20 +35,20 @@
             android:layout_width="55dp"
             android:layout_height="match_parent"
             android:paddingTop="15dp"
-            android:hint="ID"
+            android:text="ID"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18dp" />
+            android:textColor="#fff"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/question"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="15dp"
-            android:hint="Question"
+            android:text="Question"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="20dp" />
+            android:textColor="#fff"
+            android:textSize="18sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -61,25 +62,29 @@
             android:id="@+id/answer1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="12dp" />
+            android:elevation="12dp"
+            android:paddingTop="5sp"/>
 
         <Button
             android:id="@+id/answer2"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:elevation="12dp" />
+            android:elevation="12dp"
+            android:paddingTop="5sp"/>
 
         <Button
             android:id="@+id/answer3"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:elevation="12dp" />
+            android:elevation="12dp"
+            android:paddingTop="5sp"/>
 
         <Button
             android:id="@+id/answer4"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:elevation="12dp" />
+            android:elevation="12dp"
+            android:paddingTop="5sp"/>
     </LinearLayout>
     <Button
         android:id="@+id/next"

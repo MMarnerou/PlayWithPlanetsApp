@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PlayWithPlanetsApp.iml" filepath="$PROJECT_DIR$/PlayWithPlanetsApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\npaspallis\AndroidStudioProjects\PlayWithPlanetsApp\testApp.iml" filepath="C:\Users\npaspallis\AndroidStudioProjects\PlayWithPlanetsApp\testApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testApp.iml" filepath="$PROJECT_DIR$/testApp.iml" />
     </modules>
   </component>
 </project>

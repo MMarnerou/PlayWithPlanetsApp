@@ -1,10 +1,45 @@
 {
-  //Closer to Sun(descending order): Pluto, Neptune, Uranus, Saturn, Jupiter, Mars, Earth, Venus, Mercury, Sun
-
   "planets": [
     {
       "name": "Pluto",
       "welcome": "Welcome to Pluto!",
+      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
+      "questions": [
+        {
+          "question": "Q1. what color is it?",
+            "answers": [
+            "white",
+            "black",
+            "green",
+            "yellow"
+          ],
+          "correct": 3
+        },
+        {
+          "question": "Q2. what color is it2?",
+          "answers": [
+            "white2",
+            "black2",
+            "green2",
+            "yellow2"
+          ],
+          "correct": 3
+        },
+        {
+          "question": "Q3. what color is it2?",
+          "answers": [
+            "white3",
+            "black3",
+            "green3",
+            "yellow3"
+          ],
+          "correct": 3
+        }
+      ]
+    },
+    {
+      "name": "Neptune",
+      "welcome": "Welcome to Neptune!",
       "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
       "questions": [
         {
@@ -26,21 +61,24 @@
             "yellow2"
           ],
           "correct": 3
-        }
-      ]
-    },
-    {
-      "name": "Neptune",
-      "welcome": "Welcome to Neptune!",
-      "informations": "Pluto has the bigest distance from the sun of the 8 planets.",
-      "questions": [
+        },
         {
-          "question": "what color is it?",
+          "question": "what color is it3?",
           "answers": [
-            "white",
-            "black",
-            "green",
-            "yellow"
+            "white3",
+            "black3",
+            "green3",
+            "yellow3"
+          ],
+          "correct": 3
+        },
+        {
+          "question": "what color is it4?",
+          "answers": [
+            "white4",
+            "black4",
+            "green4",
+            "yellow4"
           ],
           "correct": 3
         }
@@ -255,22 +293,5 @@
         }
       ]
     }
-    //    {
-    //      "name": "Sun",
-    //      "welcome": "Welcome to Sun! Wow it is too hot!",
-    //      "informations" : "Pluto has the bigest distance from the sun of the 8 planets.",
-    //      "questions": [
-    //        {
-    //          "question": "what color is it?",
-    //          "answers": [
-    //            "white",
-    //            "black",
-    //            "green",
-    //            "yellow"
-    //          ],
-    //          "correct": 3
-    //        }
-    //      ]
-    //    }
   ]
 }

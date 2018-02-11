@@ -19,7 +19,7 @@
         <activity android:name=".Modes" />
         <activity android:name=".StudyMode" />
         <activity android:name=".GameMode" />
-        <activity android:name=".planetQuiz"></activity>
+        <activity android:name=".PlanetQuiz"></activity>
     </application>
 
 </manifest>

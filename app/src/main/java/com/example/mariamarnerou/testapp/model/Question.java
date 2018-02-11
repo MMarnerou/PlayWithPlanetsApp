@@ -9,7 +9,7 @@ public class Question implements Serializable {
     public String [] answers,questions;
     public int correct;
 
-    public Question() { super(); }
+    public Question(String q, String[] a, int c) { super(); }
 
     public String[] getQuestions() {
         return questions;
