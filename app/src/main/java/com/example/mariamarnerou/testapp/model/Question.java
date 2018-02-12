@@ -5,21 +5,17 @@ import java.util.Arrays;
 
 public class Question implements Serializable {
 
-    public String question;
-    public String [] answers,questions;
-    public int correct;
+    private String question;
+    private String [] answers;
+    private int correct;
 
     public Question(String q, String[] a, int c) { super(); }
-
-    public String[] getQuestions() {
-        return questions;
-    }
 
     public String getQuestion() {
         return question;
     }
 
-    public String[] getAnswers() {
+    public String [] getAnswers() {
         return answers;
     }
 

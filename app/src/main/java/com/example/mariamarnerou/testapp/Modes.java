@@ -25,11 +25,11 @@ public class Modes extends AppCompatActivity {
             username = "guest";
         }
 
-        txtUser = (TextView) findViewById(R.id.welcome);
+        txtUser = findViewById(R.id.welcome);
         txtUser.setText("Welcome " + username);
         // End Welcome label
 
-        btnReading = (ImageButton) findViewById(R.id.readingBtn);
+        btnReading = findViewById(R.id.readingBtn);
         btnReading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,7 +38,7 @@ public class Modes extends AppCompatActivity {
             }
         });
 
-        btnQuiz = (ImageButton) findViewById(R.id.guizBtn);
+        btnQuiz = findViewById(R.id.guizBtn);
         btnQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
