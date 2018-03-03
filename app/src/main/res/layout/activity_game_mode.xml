@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
+    android:background="@android:color/background_light"
     android:orientation="vertical"
     tools:context="com.example.mariamarnerou.testapp.GameMode">">
 
@@ -14,19 +14,11 @@
         android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/pluto"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@mipmap/ic_launcher"
-            android:onClick="planetChoice"/>
-
-        <ImageButton
             android:id="@+id/neptune"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@mipmap/neptune"
+            android:background="@mipmap/posidonasimg"
             android:onClick="planetChoice"/>
 
         <ImageButton
@@ -34,7 +26,15 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@mipmap/uranus"
+            android:background="@mipmap/ouranosimg"
+            android:onClick="planetChoice"/>
+
+        <ImageButton
+            android:id="@+id/saturn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@mipmap/kronosimg"
             android:onClick="planetChoice"/>
     </LinearLayout>
 
@@ -44,19 +44,11 @@
         android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/saturn"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@mipmap/saturn"
-            android:onClick="planetChoice"/>
-
-        <ImageButton
             android:id="@+id/jupiter"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@mipmap/jupiter"
+            android:background="@mipmap/diasimg"
             android:onClick="planetChoice"/>
 
         <ImageButton
@@ -64,7 +56,15 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@mipmap/mars"
+            android:background="@mipmap/arisimg"
+            android:onClick="planetChoice"/>
+
+        <ImageButton
+            android:id="@+id/earth"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@mipmap/giimg"
             android:onClick="planetChoice"/>
 
     </LinearLayout>
@@ -75,19 +75,11 @@
         android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/earth"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@mipmap/earthnew"
-            android:onClick="planetChoice"/>
-
-        <ImageButton
             android:id="@+id/venus"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@mipmap/venus"
+            android:background="@mipmap/ermisimg"
             android:onClick="planetChoice"/>
 
         <ImageButton
@@ -95,22 +87,17 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@mipmap/mercury"
+            android:background="@mipmap/afroditiimg"
+            android:onClick="planetChoice"/>
+
+        <ImageButton
+            android:id="@+id/sun"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@mipmap/iliosimg"
             android:onClick="planetChoice"/>
 
     </LinearLayout>
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
-
-        <!--<ImageButton-->
-            <!--android:id="@+id/sun"-->
-        <!--android:layout_width="110dp"-->
-        <!--android:layout_height="115dp"-->
-        <!--android:elevation="24dp"-->
-        <!--android:scaleType="fitCenter"-->
-        <!--android:src="@mipmap/ic_launcher_round" />-->
-    <!--</LinearLayout>-->
 
 </LinearLayout>

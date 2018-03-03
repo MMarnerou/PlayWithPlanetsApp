@@ -1,6 +1,7 @@
 package com.example.mariamarnerou.testapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,10 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
+
 public class Login extends AppCompatActivity {
 
     EditText usernameTxt;
-    Button signInBtn, signAsGuestBtn;
+    Button signInBtn, signAsGuestBtn, registerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +24,23 @@ public class Login extends AppCompatActivity {
         usernameTxt = findViewById(R.id.userNameTXT);
         signAsGuestBtn = findViewById(R.id.signAsGuest);
         signInBtn = findViewById(R.id.signInBtn);
-
+        registerBtn = findViewById(R.id.register);
 
         // Register Button Intent to the RegisterActivity
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent registrationIntent = new Intent(Login.this, NewAccount.class);
+                startActivity(registrationIntent);
+            }
+        });
+
+        //Sign in as a guest Button (no need of account)
         signAsGuestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menuActivity_Intent = new Intent(Login.this, Modes.class);
-                startActivity(menuActivity_Intent);
+                Intent menuIntent = new Intent(Login.this, Modes.class);
+                startActivity(menuIntent);
             }
         });
 
@@ -54,4 +66,19 @@ public class Login extends AppCompatActivity {
         });
 
     }
+
+
+    @Override
+    protected void onResume() {
+        //get sharedPreferences from NewAccount Activity
+        SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
+        String name = prefs.getString("name", "");
+        String surname = prefs.getString("surname", "");
+        String username = prefs.getString("username", "");
+        Toast.makeText(this, "New Account is " + username, Toast.LENGTH_LONG).show();
+
+        super.onResume();
+    }
+
+
 }
