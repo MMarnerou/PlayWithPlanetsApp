@@ -17,7 +17,6 @@
         android:text="Welcome to Planet"
         android:textAlignment="center"
         android:textColor="#fff"
-        android:autoSizeMaxTextSize="@dimen/activity_horizontal_margin"
         android:textSize="26sp" />
 
     <LinearLayout
@@ -41,7 +40,6 @@
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:text="Question"
-            android:autoSizeMaxTextSize="@dimen/activity_horizontal_margin"
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="20sp"/>
@@ -61,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:paddingTop="5sp"/>
+            android:paddingTop="5dp"/>
 
         <Button
             android:id="@+id/answer2"
@@ -69,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:paddingTop="5sp"/>
+            android:paddingTop="5dp"/>
 
         <Button
             android:id="@+id/answer3"
@@ -77,14 +75,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:paddingTop="5sp"/>
+            android:paddingTop="5dp"/>
 
         <Button
             android:id="@+id/answer4"
             android:onClick="checkAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="5sp"/>
+            android:paddingTop="5dp"/>
 
     </LinearLayout>
 
