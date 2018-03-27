@@ -25,8 +25,6 @@ import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 public class PlanetQuiz extends AppCompatActivity {
     TextView questionTextTextView, questionIdTextView, planetTextView;
     Button answer1Btn, answer2Btn, answer3Btn, answer4Btn, nextBtn;
-    String currentQuestionRetrieve = null;
-
     private Quiz quiz;
     private Planet planet;
     private int currentQuestion;
@@ -59,13 +57,6 @@ public class PlanetQuiz extends AppCompatActivity {
 
         planet = quiz.getPlanet(planetName);
     }
-
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        // todo use preferences to 'remember' the currentQuestion in case the user leaves the activity before finishing
-//
-//    }
 
     @Override
     protected void onResume() {
@@ -136,14 +127,13 @@ public class PlanetQuiz extends AppCompatActivity {
     }
 
     public void nextQuestion(View view) {
-        currentQuestion++;
 
         //Save the current question of the quiz
         SharedPreferences sharedPreferences = getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor questionEditor = sharedPreferences.edit();
         questionEditor.putInt("currentQuestion", currentQuestion);
         questionEditor.commit();
-        Toast.makeText(this, "Current Question is  " + currentQuestion + 1, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Current Question is  " + (currentQuestion + 1), Toast.LENGTH_SHORT).show();
 
         //when is the last question close activity and get Sharepreferences
         if(currentQuestion == planet.getNumOfQuestions()) {
@@ -153,9 +143,10 @@ public class PlanetQuiz extends AppCompatActivity {
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("completedPlanet", planet.getName());
             editor.commit();
-
+            currentQuestion = 0;
             finish(); // exit activity
         } else {
+            currentQuestion++;
             showQuestion();
         }
     }
