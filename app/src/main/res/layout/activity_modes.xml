@@ -3,30 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context="com.example.mariamarnerou.testapp.Modes">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3">
+        android:layout_weight="7">
 
         <TextView
             android:id="@+id/welcome"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Welcome"
-            android:textSize="25dp"
-            android:paddingTop="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:paddingTop="5dp"
+            android:text="Καλωσόρισες "
+            android:textAlignment="center"
             android:textColor="#000"
-            android:textAlignment="center"/>
+            android:textSize="25dp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="4"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -38,21 +39,19 @@
             <ImageButton
                 android:id="@+id/guizBtn"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginRight="15dp"
-                android:elevation="0dp"
-                android:layout_marginEnd="15dp"
+                android:layout_height="170dp"
+                android:layout_marginRight="5dp"
                 android:background="@mipmap/quiz_foreground" />
 
             <TextView
                 android:id="@+id/quiz"
-                android:paddingTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingTop="5dp"
                 android:text="Quiz Mode"
-                android:textSize="@dimen/fab_margin"
+                android:textAlignment="center"
                 android:textColor="#000"
-                android:textAlignment="center" />
+                android:textSize="@dimen/fab_margin" />
         </LinearLayout>
 
         <LinearLayout
@@ -64,22 +63,39 @@
             <ImageButton
                 android:id="@+id/readingBtn"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginLeft="15dp"
-                android:elevation="0dp"
-                android:layout_marginStart="15dp"
+                android:layout_height="170dp"
+                android:layout_marginLeft="5dp"
                 android:background="@mipmap/reading_foreground" />
 
             <TextView
                 android:id="@+id/reading"
-                android:paddingTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="@dimen/fab_margin"
-                android:textColor="#000"
+                android:paddingTop="5dp"
                 android:text="Reading Mode"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="@dimen/fab_margin" />
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/finalBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorPrimary"
+            android:text="Final Quiz"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+
     </LinearLayout>
 
 </LinearLayout>

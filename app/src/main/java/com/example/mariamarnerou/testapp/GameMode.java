@@ -9,20 +9,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.mariamarnerou.testapp.model.Quiz;
-import com.google.gson.Gson;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
 public class GameMode extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton neptuneBtn, uranusBtn, saturnBtn, jupiterBtn, marsBtn, earthBtn, venusBtn, mercuryBtn, sunBtn;
-    boolean[] status = new boolean[9];
-    Quiz quiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,44 +43,6 @@ public class GameMode extends AppCompatActivity implements View.OnClickListener 
         SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
         String completedPlanet = prefs.getString("completedPlanet", "Ποσειδώνας");
         Toast.makeText(this, completedPlanet, Toast.LENGTH_LONG).show();
-        for (int k = 0; k < status.length; k++) {
-            status[k] = false;
-        }
-
-        int i = 0;
-        while (i < status.length) {
-            try {
-                final InputStream inputStream = getAssets().open("questions.json");
-                quiz = new Gson().fromJson(new InputStreamReader(inputStream), Quiz.class);
-                String planet = quiz.getPlanet(i).getName();
-                if (planet != completedPlanet) {
-                    status[i] = true;
-                    i++;
-                } else {
-                    status[i] = true;
-                    for (int j=i; j < status.length; j++) {
-                        status[j] = false;
-                    }
-                    break;
-                }
-            } catch (IOException ioe) {
-                Log.e("planetsStatus", ioe.getMessage(), ioe);
-            }
-        }
-
-        //disabled all the quizes
-        uranusBtn.setEnabled(status[1]);
-        saturnBtn.setEnabled(status[2]);
-        jupiterBtn.setEnabled(status[3]);
-        marsBtn.setEnabled(status[4]);
-        venusBtn.setEnabled(status[5]);
-        earthBtn.setEnabled(status[6]);
-        mercuryBtn.setEnabled(status[7]);
-        sunBtn.setVisibility(View.INVISIBLE);
-
-        if (completedPlanet == "Αφροδίτη") {
-            sunBtn.setVisibility(View.VISIBLE);
-        }
     }
 
     @Override
@@ -112,6 +65,7 @@ public class GameMode extends AppCompatActivity implements View.OnClickListener 
         } else if (view == mercuryBtn) {
             quiz_intent.putExtra("planetTextView", "Αφροδίτη");
         }else if (view == sunBtn) {
+            quiz_intent = new Intent(this, Modes.class);
             quiz_intent.putExtra("planetTextView", "Ήλιος");
         } else { // in case of unknown click, show log error and close activity
             Log.e("planets", "Unknown view clicked: " + view);

@@ -1,5 +1,6 @@
 package com.example.mariamarnerou.testapp;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,10 +19,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
+
 public class FinalQuiz extends AppCompatActivity {
     TextView questionTextTextView, questionIdTextView, planetTextView;
     Button answer1Btn, answer2Btn, answer3Btn, answer4Btn, nextBtn;
-
     private Quiz quiz;
     private Planet planet;
     private int currentQuestion;
@@ -30,6 +32,7 @@ public class FinalQuiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_quiz);
+
         answer1Btn = findViewById(R.id.answer1);
         answer2Btn = findViewById(R.id.answer2);
         answer3Btn = findViewById(R.id.answer3);
@@ -39,32 +42,22 @@ public class FinalQuiz extends AppCompatActivity {
         questionIdTextView = findViewById(R.id.questionId);
         nextBtn = findViewById(R.id.next);
 
+        //Specify the planet object through Gson request
         try {
             final InputStream inputStream = getAssets().open("questions.json");
             quiz = new Gson().fromJson(new InputStreamReader(inputStream), Quiz.class);
-            Log.d("planets", quiz.toString());
         } catch (IOException ioe) {
             Log.e("planets", ioe.getMessage(), ioe);
         }
-
-        planet = quiz.getPlanet("Sun");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //Use preferences to 'remember' the currentQuestion in case the user leaves the activity before finishing
-
+        planet = quiz.getPlanet("'Ηλιος");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        currentQuestion = 0;
-
-        planetTextView.setText(planet.getName());
-
+        final SharedPreferences sharedPreferences = getSharedPreferences(String.valueOf(currentQuestion), MODE_PRIVATE);
+        currentQuestion = sharedPreferences.getInt("currentQuestion", 0);
         showQuestion();
     }
 
@@ -73,6 +66,7 @@ public class FinalQuiz extends AppCompatActivity {
         questionIdTextView.setText("#" + (currentQuestion + 1) + "/" + planet.getNumOfQuestions());
 
         final Question question = planet.getQuestion(currentQuestion);
+        planetTextView.setText(planet.getWelcome());
         questionTextTextView.setText(question.getQuestion());
 
         answer1Btn.setEnabled(true);
@@ -80,10 +74,10 @@ public class FinalQuiz extends AppCompatActivity {
         answer3Btn.setEnabled(true);
         answer4Btn.setEnabled(true);
 
-        answer1Btn.setBackgroundColor(Color.GRAY);
-        answer2Btn.setBackgroundColor(Color.GRAY);
-        answer3Btn.setBackgroundColor(Color.GRAY);
-        answer4Btn.setBackgroundColor(Color.GRAY);
+        answer1Btn.setBackgroundColor(Color.WHITE);
+        answer2Btn.setBackgroundColor(Color.WHITE);
+        answer3Btn.setBackgroundColor(Color.WHITE);
+        answer4Btn.setBackgroundColor(Color.WHITE);
 
         answer1Btn.setText(question.getAnswer(0));
         answer2Btn.setText(question.getAnswer(1));
@@ -127,10 +121,26 @@ public class FinalQuiz extends AppCompatActivity {
     }
 
     public void nextQuestion(View view) {
-        currentQuestion++;
-        if(currentQuestion == planet.getNumOfQuestions()) {
+
+        //Save the current question of the quiz
+        SharedPreferences sharedPreferences = getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor questionEditor = sharedPreferences.edit();
+        questionEditor.putInt("currentQuestion", currentQuestion);
+        questionEditor.commit();
+
+        //when is the last question close activity and get Sharepreferences
+        if ((currentQuestion + 1) == planet.getNumOfQuestions()) {
+            Toast.makeText(this, "Συγχαρητήρια!! Έχεις ολοκληρώσει το ταξίδι εξερεύνησης του Ηλιακού μας συστήματος. ", Toast.LENGTH_SHORT).show();
+
+            SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("completedPlanet", planet.getName());
+            editor.commit();
+            currentQuestion = 0;
+
             finish(); // exit activity
         } else {
+            currentQuestion++;
             showQuestion();
         }
     }

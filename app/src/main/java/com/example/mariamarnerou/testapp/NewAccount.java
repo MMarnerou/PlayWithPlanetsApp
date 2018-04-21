@@ -87,7 +87,5 @@ public class NewAccount extends AppCompatActivity {
     }
 
     private void verifyUsername(String usrnm) {//return 1 or 0 if the username exist or not in database
-
-
     }
 }

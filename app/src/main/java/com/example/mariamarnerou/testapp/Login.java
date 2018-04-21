@@ -59,18 +59,18 @@ public class Login extends AppCompatActivity {
                     DbAccount(get);
                     if (!isResponseEmpty) {
                         if (userName.equals(username)) {
-                            Toast.makeText(Login.this, "Login Successfully as " + username, Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, "Η σύνδεση ως " + username + " είναι επιτυχής", Toast.LENGTH_SHORT).show();
                             Intent modesIntent = new Intent(Login.this, Modes.class);
                             modesIntent.putExtra("username", username);
                             startActivity(modesIntent);
                         } else {
-                            Toast.makeText(Login.this, "Username does not match", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, "Το Username σας δεν είναι αποδεκτό.", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(Login.this, "There is not such as username", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this, "Δεν υπάρχει αυτό το Username", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(Login.this, "Username field required a value", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Το Username είναι υποχρεωτικό", Toast.LENGTH_LONG).show();
                 }//endregion
             }
         });
@@ -78,14 +78,9 @@ public class Login extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        //get sharedPreferences from NewAccount Activity
-//        SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
-//        name = prefs.getString("name", "");
-//        surname = prefs.getString("surname", "");
-//        username = prefs.getString("username", "");
-//
         super.onResume();
     }
+
     private void DbAccount(String sql) {
         //OPEN THE DATABASE AND REQUEST FOR AN SPECIFIC username
         DatabaseOpenHelper databaseOpenHelper = new DatabaseOpenHelper(Login.this);

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/solar_foreground"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@mipmap/solar_foreground"
     tools:context="com.example.mariamarnerou.testapp.FinalQuiz">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
-        android:text="THE SUN"
+        android:text="Welcome to Planet"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="26sp" />
@@ -42,7 +42,7 @@
             android:text="Question"
             android:textAlignment="center"
             android:textColor="#fff"
-            android:textSize="18sp"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -55,42 +55,47 @@
 
         <Button
             android:id="@+id/answer1"
-            android:onClick="checkAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:paddingTop="5sp"/>
+            android:onClick="checkAnswer"
+            android:paddingTop="5dp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/answer2"
-            android:onClick="checkAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:paddingTop="5sp"/>
+            android:onClick="checkAnswer"
+            android:paddingTop="5dp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/answer3"
-            android:onClick="checkAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:paddingTop="5sp"/>
+            android:onClick="checkAnswer"
+            android:paddingTop="5dp"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/answer4"
-            android:onClick="checkAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="5sp"/>
+            android:onClick="checkAnswer"
+            android:paddingTop="5dp"
+            android:textStyle="bold|italic" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/next"
-        android:onClick="nextQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="nextQuestion"
         android:text="NEXT QUESTION" />
+
 
 </LinearLayout>
