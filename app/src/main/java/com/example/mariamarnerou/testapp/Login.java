@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 String userName = usernameTxt.getText().toString();
 
-                if (userName != null ) {
+                if (userName != null) {
                     //Get account from database
                     String get = "SELECT * FROM accounts";
                     DbAccount(get);
@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
             username = cursor.getString(cursor.getColumnIndex("username"));
         }
         isResponseEmpty = true;
-        if(cursor.getCount() <= 0){
+        if (cursor.getCount() <= 0) {
             cursor.close();
             isResponseEmpty = false;
         } else {
