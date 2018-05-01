@@ -1,5 +1,6 @@
 package com.example.mariamarnerou.testapp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,15 +16,22 @@ import com.example.mariamarnerou.testapp.model.Question;
 import com.example.mariamarnerou.testapp.model.Quiz;
 import com.google.gson.Gson;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.Calendar;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
 public class FinalQuiz extends AppCompatActivity {
     TextView questionTextTextView, questionIdTextView, planetTextView;
     Button answer1Btn, answer2Btn, answer3Btn, answer4Btn, nextBtn;
+    int[] userAnswers = new int[11];
+    String username, finishedMode;
+    int score;
     private Quiz quiz;
     private Planet planet;
     private int currentQuestion;
@@ -32,6 +40,12 @@ public class FinalQuiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_quiz);
+
+        score = 0;
+
+        Intent usernameIntent = getIntent();
+        username = usernameIntent.getStringExtra("username");
+        finishedMode = usernameIntent.getStringExtra("completedMode");
 
         answer1Btn = findViewById(R.id.answer1);
         answer2Btn = findViewById(R.id.answer2);
@@ -101,6 +115,7 @@ public class FinalQuiz extends AppCompatActivity {
         }
 
         view.setEnabled(false);
+        userAnswers[currentQuestion] = answerIndex;
 
         final Question question = planet.getQuestion(currentQuestion);
         final boolean correct = question.getCorrect() == answerIndex;
@@ -109,15 +124,17 @@ public class FinalQuiz extends AppCompatActivity {
 
         if(correct) {
             view.setBackgroundColor(Color.GREEN);
-            answer1Btn.setEnabled(false);
-            answer2Btn.setEnabled(false);
-            answer3Btn.setEnabled(false);
-            answer4Btn.setEnabled(false);
-            nextBtn.setEnabled(true);
+            score = score + 1;
         } else {
+            Toast.makeText(this, "The correct answer is " + question.getAnswer(question.getCorrect()), Toast.LENGTH_SHORT).show();
             view.setBackgroundColor(Color.RED);
-            nextBtn.setEnabled(false);
         }
+
+        answer1Btn.setEnabled(false);
+        answer2Btn.setEnabled(false);
+        answer3Btn.setEnabled(false);
+        answer4Btn.setEnabled(false);
+        nextBtn.setEnabled(true);
     }
 
     public void nextQuestion(View view) {
@@ -132,16 +149,31 @@ public class FinalQuiz extends AppCompatActivity {
         if ((currentQuestion + 1) == planet.getNumOfQuestions()) {
             Toast.makeText(this, "Συγχαρητήρια!! Έχεις ολοκληρώσει το ταξίδι εξερεύνησης του Ηλιακού μας συστήματος. ", Toast.LENGTH_SHORT).show();
 
-            SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putString("completedPlanet", planet.getName());
-            editor.commit();
             currentQuestion = 0;
-
+            Toast.makeText(this, "Your score is " + score + " /10", Toast.LENGTH_SHORT).show();
+            Write(userAnswers);
             finish(); // exit activity
         } else {
             currentQuestion++;
             showQuestion();
+        }
+    }
+
+    public void Write(int intArray[]) {
+
+        try {
+            FileWriter fr = new FileWriter(username + Calendar.getInstance().getTime() + ".txt");
+            BufferedWriter br = new BufferedWriter(fr);
+            PrintWriter out = new PrintWriter(br);
+            out.write("Username: " + username + "Datetime: " + Calendar.getInstance().getTime() + "\n");
+            out.write("Finished Mode: " + finishedMode + "\n");
+            for (int i = 0; i < intArray.length; i++) {
+                out.write(intArray[i] + "\n");
+            }
+            out.write("Score: " + score);
+            out.close();
+        } catch (IOException e) {
+            System.out.println(e);
         }
     }
 }

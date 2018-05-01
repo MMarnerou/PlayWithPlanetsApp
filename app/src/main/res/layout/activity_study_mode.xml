@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.mariamarnerou.testapp.StudyMode">
 
         <WebView
             android:id="@+id/bookContent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="13sp" />
+            android:layout_weight="1" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/readBtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="9"
+        android:text="\u2713  ΕΧΩ ΔΙΑΒΑΣΕΙ ΟΛΕΣ ΤΙΣ ΠΛΗΡΟΦΟΡΙΕΣ" />
+</LinearLayout>

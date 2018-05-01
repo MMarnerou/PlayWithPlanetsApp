@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Modes extends AppCompatActivity {
     TextView txtUser;
@@ -36,6 +37,7 @@ public class Modes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent readingIntent = new Intent(Modes.this, StudyMode.class);
+                readingIntent.putExtra("username", username);
                 startActivity(readingIntent);
             }
         });
@@ -45,17 +47,33 @@ public class Modes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent quizIntent = new Intent(Modes.this, GameMode.class);
+                quizIntent.putExtra("username", username);
                 startActivity(quizIntent);
             }
         });
 
         btnFinal = findViewById(R.id.finalBtn);
-        btnFinal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent quizIntent = new Intent(Modes.this, FinalQuiz.class);
-                startActivity(quizIntent);
+        //Guest will not allow to play the final Quiz. Need to have an account to play
+        if (!username.equals("guest")) {
+            //If any mode finished set enabled
+            Intent finalQuizIntent = getIntent();
+            final String finishedMode = finalQuizIntent.getStringExtra("finishedMode");
+            if (finishedMode != null) {
+                Toast.makeText(this, finishedMode + " finished", Toast.LENGTH_SHORT).show();
+                if (finishedMode.equals("StudyMode") || finishedMode.equals("GameMode")) {
+                    btnFinal.setEnabled(true);
+                }
             }
-        });
+
+            btnFinal.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent quizIntent = new Intent(Modes.this, FinalQuiz.class);
+                    quizIntent.putExtra("username", username);
+                    quizIntent.putExtra("completedMode", finishedMode);
+                    startActivity(quizIntent);
+                }
+            });
+        }
     }
 }

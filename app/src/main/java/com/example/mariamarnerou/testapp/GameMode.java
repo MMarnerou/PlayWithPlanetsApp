@@ -14,11 +14,14 @@ import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 public class GameMode extends AppCompatActivity implements View.OnClickListener {
 
     ImageButton neptuneBtn, uranusBtn, saturnBtn, jupiterBtn, marsBtn, earthBtn, venusBtn, mercuryBtn, sunBtn;
-
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_mode);
+
+        Intent usernameIntent = getIntent();
+        username = usernameIntent.getStringExtra("username");
 
         neptuneBtn = findViewById(R.id.neptune);
         uranusBtn = findViewById(R.id.uranus);
@@ -40,9 +43,11 @@ public class GameMode extends AppCompatActivity implements View.OnClickListener 
         mercuryBtn.setOnClickListener(this);
         sunBtn.setOnClickListener(this);
 
-        SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
-        String completedPlanet = prefs.getString("completedPlanet", "Ποσειδώνας");
-        Toast.makeText(this, completedPlanet, Toast.LENGTH_LONG).show();
+        if (username != null) {
+            SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
+            String completedPlanet = prefs.getString("completedPlanet", "Ποσειδώνας");
+            Toast.makeText(this, "Η τελευταία επίσκεψή σου ήταν στον πλανήτη " + completedPlanet, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -66,7 +71,8 @@ public class GameMode extends AppCompatActivity implements View.OnClickListener 
             quiz_intent.putExtra("planetTextView", "Αφροδίτη");
         }else if (view == sunBtn) {
             quiz_intent = new Intent(this, Modes.class);
-            quiz_intent.putExtra("planetTextView", "Ήλιος");
+            quiz_intent.putExtra("finishedMode", "GameMode");
+            quiz_intent.putExtra("username", username);
         } else { // in case of unknown click, show log error and close activity
             Log.e("planets", "Unknown view clicked: " + view);
             finish();
@@ -77,8 +83,5 @@ public class GameMode extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onResume() {
         super.onResume();
-
-
     }
-
 }
