@@ -39,6 +39,8 @@
                 android:id="@+id/userNameTXT"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
+                android:maxLines="1"
+                android:inputType="text"
                 android:layout_weight="1"
                 android:hint="Username"
                 android:textColor="#fff"

@@ -1,9 +1,14 @@
 package com.example.mariamarnerou.testapp;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -17,12 +22,18 @@ import com.example.mariamarnerou.testapp.model.Quiz;
 import com.google.gson.Gson;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
@@ -151,7 +162,8 @@ public class FinalQuiz extends AppCompatActivity {
 
             currentQuestion = 0;
             Toast.makeText(this, "Your score is " + score + " /10", Toast.LENGTH_SHORT).show();
-            Write(userAnswers);
+            Log.d(TAG, "calling exportAnswers");
+            exportAnswers();
             finish(); // exit activity
         } else {
             currentQuestion++;
@@ -159,21 +171,81 @@ public class FinalQuiz extends AppCompatActivity {
         }
     }
 
-    public void Write(int intArray[]) {
+    public static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 42;
 
-        try {
-            FileWriter fr = new FileWriter(username + Calendar.getInstance().getTime() + ".txt");
-            BufferedWriter br = new BufferedWriter(fr);
-            PrintWriter out = new PrintWriter(br);
-            out.write("Username: " + username + "Datetime: " + Calendar.getInstance().getTime() + "\n");
-            out.write("Finished Mode: " + finishedMode + "\n");
-            for (int i = 0; i < intArray.length; i++) {
-                out.write(intArray[i] + "\n");
-            }
-            out.write("Score: " + score);
-            out.close();
-        } catch (IOException e) {
-            System.out.println(e);
+    private void exportAnswers() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
+            Log.d(TAG, "requestPermissions");
+            requestPermissions(new String [] { Manifest.permission.WRITE_EXTERNAL_STORAGE },
+                    PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+            //After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
+        } else {
+            saveToFile();
+            Log.d(TAG, "going directly to saveToFile");
         }
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            saveToFile();
+            Log.d(TAG, "save success");
+        } else {
+            Toast.makeText(this, "You must allow the app to save the answers to proceed with this", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "save fail");
+        }
+    }
+
+    public static final String TAG = "playWithPlanets";
+
+    public static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.US);
+
+    private void saveToFile() {
+        Log.d(TAG, "saveToFile");
+
+        final StringBuilder answers = new StringBuilder();
+        answers.append("Username: ").append(username).append("Datetime: ").append(Calendar.getInstance().getTime()).append("\n");
+        answers.append("Finished Mode: ").append(finishedMode).append("\n");
+        answers.append("Answers: ").append(Arrays.toString(userAnswers)).append("\n");
+        answers.append("Score: ").append(score).append("\n");
+
+        final File sdCard = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        Log.d(TAG, "sdCard: " + sdCard);
+        Log.d(TAG, "sdCard.exists(): " + sdCard.exists());
+        final File dir = new File(sdCard.getAbsolutePath() + "/planets");
+        if (dir.exists() || dir.mkdirs()) {
+            File file = new File(dir, "play-with-planets-" + username + "-" + SIMPLE_DATE_FORMAT.format(new Date()) + ".txt");
+            try {
+                final PrintWriter printWriter = new PrintWriter(file);
+                printWriter.println(answers.toString());
+                printWriter.close();
+                Toast.makeText(this, "File containing answers created in: " + dir.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+            } catch (FileNotFoundException fnfe) {
+                Toast.makeText(this, "Failed to create file: " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "Failed to create dir: " + dir.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+//    public void Write(int intArray[]) {
+//
+//        try {
+//            FileWriter fr = new FileWriter(username + Calendar.getInstance().getTime() + ".txt");
+//            BufferedWriter br = new BufferedWriter(fr);
+//            PrintWriter out = new PrintWriter(br);
+//            out.write("Username: " + username + "Datetime: " + Calendar.getInstance().getTime() + "\n");
+//            out.write("Finished Mode: " + finishedMode + "\n");
+//            for (int i = 0; i < intArray.length; i++) {
+//                out.write(intArray[i] + "\n");
+//            }
+//            out.write("Score: " + score);
+//            out.close();
+//        } catch (IOException e) {
+//            System.out.println(e);
+//        }
+//    }
 }

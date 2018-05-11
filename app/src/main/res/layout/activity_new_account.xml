@@ -40,6 +40,8 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
+                android:maxLines="1"
+                android:inputType="text"
                 android:hint="Name"
                 android:textColor="#fff"
                 android:textColorHint="#fff" />
@@ -48,6 +50,8 @@
                 android:id="@+id/surname"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
+                android:maxLines="1"
+                android:inputType="text"
                 android:hint="Surname"
                 android:textColor="#fff"
                 android:textColorHint="#fff" />
@@ -56,6 +60,8 @@
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
+                android:maxLines="1"
+                android:inputType="text"
                 android:hint="Choose a Username"
                 android:textColor="#fff"
                 android:textColorHint="#fff" />
