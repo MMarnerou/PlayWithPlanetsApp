@@ -27,7 +27,7 @@ public class StudyMode extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent finalQuiz = new Intent(StudyMode.this, Modes.class);
-                    finalQuiz.putExtra("finishedMode", "StudyMode");
+                    finalQuiz.putExtra("finishedMode", "Ανάγνωση ");
                     finalQuiz.putExtra("username", username);
                     startActivity(finalQuiz);
                 }

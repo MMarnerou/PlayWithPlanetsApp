@@ -17,7 +17,7 @@
             android:id="@+id/appTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Play With Planets"
+            android:text="Το Πλανητάριο"
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="40sp" />
@@ -40,9 +40,9 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:maxLines="1"
+                android:hint="Όνομα"
                 android:inputType="text"
-                android:hint="Name"
+                android:maxLines="1"
                 android:textColor="#fff"
                 android:textColorHint="#fff" />
 
@@ -50,9 +50,9 @@
                 android:id="@+id/surname"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:maxLines="1"
+                android:hint="Επίθετο"
                 android:inputType="text"
-                android:hint="Surname"
+                android:maxLines="1"
                 android:textColor="#fff"
                 android:textColorHint="#fff" />
 
@@ -60,9 +60,9 @@
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="58dp"
-                android:maxLines="1"
+                android:hint="Πληκτρολόγησε το Συνθηματικό σου"
                 android:inputType="text"
-                android:hint="Choose a Username"
+                android:maxLines="1"
                 android:textColor="#fff"
                 android:textColorHint="#fff" />
 
@@ -80,7 +80,7 @@
                     android:layout_gravity="left"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:text="Male"
+                    android:text="Άρεν"
                     android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -92,39 +92,7 @@
                     android:layout_gravity="right"
                     android:layout_weight="1"
                     android:checked="false"
-                    android:text="Female"
-                    android:textColor="#fff"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/radioGrp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radioM"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:text="Male"
-                    android:textColor="#fff"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
-
-                <RadioButton
-                    android:id="@+id/radioF"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:text="Female"
+                    android:text="Θήλυ"
                     android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold" />

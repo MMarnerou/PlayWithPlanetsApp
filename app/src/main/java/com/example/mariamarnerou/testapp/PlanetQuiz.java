@@ -133,11 +133,11 @@ public class PlanetQuiz extends AppCompatActivity {
         SharedPreferences.Editor questionEditor = sharedPreferences.edit();
         questionEditor.putInt("currentQuestion", currentQuestion);
         questionEditor.commit();
-        Toast.makeText(this, "Σωστή Απάντηση ", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Σωστή Απάντηση ", Toast.LENGTH_SHORT).show();
 
         //when is the last question close activity and get Sharepreferences
         if ((currentQuestion + 1) == planet.getNumOfQuestions()) {
-            Toast.makeText(this, "Η εξερεύνηση του πλανήτη " + planet.getName() + " έχει τελειώσει. Ετοιμαστείτε για την προσγείωση μας στον επόμενο πλανήτη!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Η εξερεύνηση του πλανήτη " + planet.getName() + " έχει τελειώσει. Ετοιμαστείτε για την προσγείωση μας στον επόμενο πλανήτη!", Toast.LENGTH_LONG).show();
 
             SharedPreferences prefs = getDefaultSharedPreferences(getApplicationContext());
             SharedPreferences.Editor editor = prefs.edit();

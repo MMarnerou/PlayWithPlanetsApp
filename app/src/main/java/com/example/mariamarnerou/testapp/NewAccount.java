@@ -64,24 +64,24 @@ public class NewAccount extends AppCompatActivity {
                         editor.commit();
                         insert(username);
                     } else {
-                        Toast.makeText(NewAccount.this, "This username is already used. Please choose a new username.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NewAccount.this, "Αυτό το συνθηματικό έχει χρησιμοποιηθεί ήδη.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(NewAccount.this, "Please fill All the Field to continue", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NewAccount.this, "Όλα τα πεδία πρέπει να είναι συμπληρωμένα.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
     private void insert(String usrnm) {
-        Toast.makeText(NewAccount.this, "Created a new account", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(NewAccount.this, "Δημιουργία Λογαριασμού", Toast.LENGTH_SHORT).show();
 
         DatabaseOpenHelper databaseOpenHelper = new DatabaseOpenHelper(NewAccount.this);
         SQLiteDatabase database = databaseOpenHelper.getWritableDatabase();
         database.execSQL("INSERT INTO accounts (name, surname, username, gender) VALUES ('" + name + "', '" + surname + "', '" + usrnm + "', '" + gender + "')");
         Cursor cursor = database.rawQuery("SELECT * FROM accounts", new String[0]);
         int numOfRows = cursor.getCount();
-        Toast.makeText(this, "added in DB - now: " + numOfRows, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "added in DB - now: " + numOfRows, Toast.LENGTH_SHORT).show();
         cursor.close();
         finish(); // exit activity
     }

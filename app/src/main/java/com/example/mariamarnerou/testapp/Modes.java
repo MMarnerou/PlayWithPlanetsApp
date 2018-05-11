@@ -25,7 +25,7 @@ public class Modes extends AppCompatActivity {
         username = usernameIntent.getStringExtra("username");
 
         if (username == null) {
-            username = "guest";
+            username = "Επισκέπτης";
         }
 
         txtUser = findViewById(R.id.welcome);
@@ -59,8 +59,8 @@ public class Modes extends AppCompatActivity {
             Intent finalQuizIntent = getIntent();
             final String finishedMode = finalQuizIntent.getStringExtra("finishedMode");
             if (finishedMode != null) {
-                Toast.makeText(this, finishedMode + " finished", Toast.LENGTH_SHORT).show();
-                if (finishedMode.equals("StudyMode") || finishedMode.equals("GameMode")) {
+                Toast.makeText(this, finishedMode + " Τέλος", Toast.LENGTH_SHORT).show();
+                if (finishedMode.equals("Ανάγνωση ") || finishedMode.equals("Ερωτηματολόγιο ")) {
                     btnFinal.setEnabled(true);
                 }
             }

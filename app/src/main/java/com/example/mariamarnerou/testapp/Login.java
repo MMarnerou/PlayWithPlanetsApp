@@ -64,13 +64,13 @@ public class Login extends AppCompatActivity {
                             modesIntent.putExtra("username", username);
                             startActivity(modesIntent);
                         } else {
-                            Toast.makeText(Login.this, "Το Username σας δεν είναι αποδεκτό.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Το Συνθηματικό σας δεν είναι αποδεκτό.", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(Login.this, "Δεν υπάρχει αυτό το Username", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Δεν υπάρχει αυτό το Συνθηματικό", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(Login.this, "Το Username είναι υποχρεωτικό", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "Το Συνθηματικό είναι υποχρεωτικό", Toast.LENGTH_LONG).show();
                 }//endregion
             }
         });
@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
         isResponseEmpty = true;
         if (cursor.getCount() <= 0) {
             cursor.close();
-            isResponseEmpty = false;
+            isResponseEmpty = true;
         } else {
             isResponseEmpty = false;
         }

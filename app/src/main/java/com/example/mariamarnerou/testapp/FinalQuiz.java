@@ -21,10 +21,8 @@ import com.example.mariamarnerou.testapp.model.Question;
 import com.example.mariamarnerou.testapp.model.Quiz;
 import com.google.gson.Gson;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -38,6 +36,9 @@ import java.util.Locale;
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
 public class FinalQuiz extends AppCompatActivity {
+    public static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 42;
+    public static final String TAG = "playWithPlanets";
+    public static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.US);
     TextView questionTextTextView, questionIdTextView, planetTextView;
     Button answer1Btn, answer2Btn, answer3Btn, answer4Btn, nextBtn;
     int[] userAnswers = new int[11];
@@ -137,7 +138,7 @@ public class FinalQuiz extends AppCompatActivity {
             view.setBackgroundColor(Color.GREEN);
             score = score + 1;
         } else {
-            Toast.makeText(this, "The correct answer is " + question.getAnswer(question.getCorrect()), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Η σωστή απάντηση είναι " + question.getAnswer(question.getCorrect()), Toast.LENGTH_SHORT).show();
             view.setBackgroundColor(Color.RED);
         }
 
@@ -161,7 +162,7 @@ public class FinalQuiz extends AppCompatActivity {
             Toast.makeText(this, "Συγχαρητήρια!! Έχεις ολοκληρώσει το ταξίδι εξερεύνησης του Ηλιακού μας συστήματος. ", Toast.LENGTH_SHORT).show();
 
             currentQuestion = 0;
-            Toast.makeText(this, "Your score is " + score + " /10", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Η βαθμολογία σου είναι " + score + " /10", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "calling exportAnswers");
             exportAnswers();
             finish(); // exit activity
@@ -170,8 +171,6 @@ public class FinalQuiz extends AppCompatActivity {
             showQuestion();
         }
     }
-
-    public static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 42;
 
     private void exportAnswers() {
 
@@ -198,10 +197,6 @@ public class FinalQuiz extends AppCompatActivity {
             Log.d(TAG, "save fail");
         }
     }
-
-    public static final String TAG = "playWithPlanets";
-
-    public static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.US);
 
     private void saveToFile() {
         Log.d(TAG, "saveToFile");

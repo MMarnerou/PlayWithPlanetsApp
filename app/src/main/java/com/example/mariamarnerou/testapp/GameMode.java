@@ -71,7 +71,7 @@ public class GameMode extends AppCompatActivity implements View.OnClickListener 
             quiz_intent.putExtra("planetTextView", "Αφροδίτη");
         }else if (view == sunBtn) {
             quiz_intent = new Intent(this, Modes.class);
-            quiz_intent.putExtra("finishedMode", "GameMode");
+            quiz_intent.putExtra("finishedMode", "Ερωτηματολόγιο ");
             quiz_intent.putExtra("username", username);
         } else { // in case of unknown click, show log error and close activity
             Log.e("planets", "Unknown view clicked: " + view);
