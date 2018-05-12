@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mariamarnerou.testapp.accountSqlDatabase.DatabaseOpenHelper;
 import com.example.mariamarnerou.testapp.model.Planet;
 import com.example.mariamarnerou.testapp.model.Question;
 import com.example.mariamarnerou.testapp.model.Quiz;
@@ -44,6 +47,7 @@ public class FinalQuiz extends AppCompatActivity {
     int[] userAnswers = new int[11];
     String username, finishedMode;
     int score;
+    String age;
     private Quiz quiz;
     private Planet planet;
     private int currentQuestion;
@@ -200,9 +204,17 @@ public class FinalQuiz extends AppCompatActivity {
 
     private void saveToFile() {
         Log.d(TAG, "saveToFile");
-
+        //OPEN THE DATABASE AND REQUEST FOR AN SPECIFIC username
+        String sql = "SELECT * FROM accounts Where username='" + username + "'";
+        DatabaseOpenHelper databaseOpenHelper = new DatabaseOpenHelper(this);
+        SQLiteDatabase db = databaseOpenHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            age = cursor.getString(1);
+        }
         final StringBuilder answers = new StringBuilder();
-        answers.append("Username: ").append(username).append("Datetime: ").append(Calendar.getInstance().getTime()).append("\n");
+        answers.append("Username: ").append(username).append(" Age: ").append(age).append("\n");
+        answers.append("Datetime: ").append(Calendar.getInstance().getTime()).append("\n");
         answers.append("Finished Mode: ").append(finishedMode).append("\n");
         answers.append("Answers: ").append(Arrays.toString(userAnswers)).append("\n");
         answers.append("Score: ").append(score).append("\n");
@@ -212,7 +224,7 @@ public class FinalQuiz extends AppCompatActivity {
         Log.d(TAG, "sdCard.exists(): " + sdCard.exists());
         final File dir = new File(sdCard.getAbsolutePath() + "/planets");
         if (dir.exists() || dir.mkdirs()) {
-            File file = new File(dir, "play-with-planets-" + username + "-" + SIMPLE_DATE_FORMAT.format(new Date()) + ".txt");
+            File file = new File(dir, "Πλανητάριο-" + username + "-" + SIMPLE_DATE_FORMAT.format(new Date()) + ".txt");
             try {
                 final PrintWriter printWriter = new PrintWriter(file);
                 printWriter.println(answers.toString());
@@ -225,22 +237,4 @@ public class FinalQuiz extends AppCompatActivity {
             Toast.makeText(this, "Failed to create dir: " + dir.getAbsolutePath(), Toast.LENGTH_SHORT).show();
         }
     }
-
-//    public void Write(int intArray[]) {
-//
-//        try {
-//            FileWriter fr = new FileWriter(username + Calendar.getInstance().getTime() + ".txt");
-//            BufferedWriter br = new BufferedWriter(fr);
-//            PrintWriter out = new PrintWriter(br);
-//            out.write("Username: " + username + "Datetime: " + Calendar.getInstance().getTime() + "\n");
-//            out.write("Finished Mode: " + finishedMode + "\n");
-//            for (int i = 0; i < intArray.length; i++) {
-//                out.write(intArray[i] + "\n");
-//            }
-//            out.write("Score: " + score);
-//            out.close();
-//        } catch (IOException e) {
-//            System.out.println(e);
-//        }
-//    }
 }

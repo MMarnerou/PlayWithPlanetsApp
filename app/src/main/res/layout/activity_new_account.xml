@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
+    android:alpha="0.92"
     android:background="@mipmap/solar_foreground"
     android:orientation="vertical"
     android:padding="20dp"
@@ -46,15 +47,6 @@
                 android:textColor="#fff"
                 android:textColorHint="#fff" />
 
-            <EditText
-                android:id="@+id/surname"
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:hint="Επίθετο"
-                android:inputType="text"
-                android:maxLines="1"
-                android:textColor="#fff"
-                android:textColorHint="#fff" />
 
             <EditText
                 android:id="@+id/username"
@@ -98,6 +90,19 @@
                     android:textStyle="bold" />
             </RadioGroup>
 
+            <Spinner
+                android:id="@+id/ageSpinner"
+                style="@style/Base.Animation.AppCompat.DropDownUp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:background="#fff"
+                android:entries="@array/age_array"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:scrollbarStyle="insideInset"
+                android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout

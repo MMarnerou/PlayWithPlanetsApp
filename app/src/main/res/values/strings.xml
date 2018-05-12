@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">testApp</string>
     <string name="title_activity_modes">Modes</string>
+    <string name="age_prompt">Choose your age range</string>
+
+    <string-array name="age_array">
+        <item>8-10 χρονών</item>
+        <item>11-14 χρονών</item>
+        <item>15-18 χρονών</item>
+        <item>18+ χρονών</item>
+    </string-array>
 </resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
+    android:alpha="0.92"
     android:background="@mipmap/solar_foreground"
     android:orientation="vertical"
     android:padding="20dp"

@@ -16,7 +16,7 @@ public class Login extends AppCompatActivity {
 
     EditText usernameTxt;
     Button signInBtn, signAsGuestBtn, newAccountBtn;
-    String name, username, surname;
+    String name, username;
     Boolean isResponseEmpty = true;
 
     @Override
@@ -89,7 +89,6 @@ public class Login extends AppCompatActivity {
 
         while (cursor.moveToNext()) {
             name = cursor.getString(cursor.getColumnIndex("name"));
-            surname = cursor.getString(cursor.getColumnIndex("surname"));
             username = cursor.getString(cursor.getColumnIndex("username"));
         }
         isResponseEmpty = true;
