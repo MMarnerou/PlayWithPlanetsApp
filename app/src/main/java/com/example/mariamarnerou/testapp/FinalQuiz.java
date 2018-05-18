@@ -166,7 +166,7 @@ public class FinalQuiz extends AppCompatActivity {
             Toast.makeText(this, "Συγχαρητήρια!! Έχεις ολοκληρώσει το ταξίδι εξερεύνησης του Ηλιακού μας συστήματος. ", Toast.LENGTH_SHORT).show();
 
             currentQuestion = 0;
-            Toast.makeText(this, "Η βαθμολογία σου είναι " + score + " /10", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Η βαθμολογία σου είναι " + score + " /11", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "calling exportAnswers");
             exportAnswers();
             finish(); // exit activity
