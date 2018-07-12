@@ -75,6 +75,14 @@
         android:layout_weight="1">
 
         <ImageButton
+            android:id="@+id/mercury"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@mipmap/afroditiimg"
+            android:onClick="planetChoice"/>
+
+        <ImageButton
             android:id="@+id/venus"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -82,13 +90,6 @@
             android:background="@mipmap/ermisimg"
             android:onClick="planetChoice"/>
 
-        <ImageButton
-            android:id="@+id/mercury"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@mipmap/afroditiimg"
-            android:onClick="planetChoice"/>
 
         <ImageButton
             android:id="@+id/sun"
