@@ -51,12 +51,12 @@ public class NewAccount extends AppCompatActivity {
 
                 username = usernameTxt.getText().toString();
                 name = nameTxt.getText().toString();
-                age = "25";
+                age = "8-10 χρονών";
 
                 //get the spinner from the xml.
                 Spinner dropdown = findViewById(R.id.ageSpinner);
                 //create a list of items for the spinner.
-                String[] items = new String[]{"8-10 χρονών", "11-14 χρονών", "15-18 χρονών", "18+ χρονών"};
+                String[] items = {"8-10 χρονών", "11-14 χρονών", "15-18 χρονών", "18+ χρονών"};
                 //There are multiple variations of this, but this is the basic variant.
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(NewAccount.this, android.R.layout.simple_dropdown_item_1line, items);
                 //set the spinners adapter to the previously created one.

@@ -55,7 +55,7 @@ public class Login extends AppCompatActivity {
 
                 if (userName != null) {
                     //Get account from database
-                    String get = "SELECT * FROM accounts";
+                    String get = "SELECT * FROM accounts WHERE username=" + " '" + userName + "' ";
                     DbAccount(get);
                     if (!isResponseEmpty) {
                         if (userName.equals(username)) {
